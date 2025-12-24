@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章 | Yu-Ren Chou</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo"><a href="index.html">周宥任 Yu-Ren Chou</a></div>
+			<ul class="nav-links">
+				<li><a href="about.html">關於我</a></li>
+				<li><a href="articles.html">文章</a></li>
+				<li><a href="resources.html">開源資料</a></li>
+				<li><button id="theme-toggle" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🌙</button></li>
+			</ul>
+		</nav>
+	</header>
+
+<main class="page-container">
+    <header class="page-header">
+        <h1 class="page-title">Blog / 文章</h1>
+        <p class="page-subtitle"></p>
+    </header>
+
+    <div class="article-list">
+        <article class="article-card">
+            <span class="article-date">2024.12.24</span>
+            <div class="article-content">
+                <a href="article-detail.html" class="article-title">如何打造極簡風格的個人作品集</a>
+                <div class="article-meta">
+                    <span class="tag">#Design</span>
+                    <span class="tag">#Web</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <span class="article-date">2024.11.15</span>
+            <div class="article-content">
+                <a href="#" class="article-title">CSS Grid 與 Flexbox 的完美結合方案</a>
+                <div class="article-meta">
+                    <span class="tag">#Development</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <span class="article-date">2024.10.02</span>
+            <div class="article-content">
+                <a href="#" class="article-title">在 GitHub Pages 上部署你的第一個靜態網頁</a>
+                <div class="article-meta">
+                    <span class="tag">#Tutorial</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+    <footer>
+	<div class="footer-content">
+        <div class="social-circles">
+            <a href="https://github.com/chouyuren2024" class="circle-icon" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:chouyuren2024@gmail.com" class="circle-icon" title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Yu-Ren Chou. </p>
+    </div>
+    </footer>
+</body>
+<script src="script.js"></script> </body>
+</html>

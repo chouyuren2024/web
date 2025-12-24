@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開源資料 | Yu-Ren Chou</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo"><a href="index.html">周宥任 Yu-Ren Chou</a></div>
+			<ul class="nav-links">
+				<li><a href="about.html">關於我</a></li>
+				<li><a href="articles.html">文章</a></li>
+				<li><a href="resources.html">開源資料</a></li>
+				<li><button id="theme-toggle" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🌙</button></li>
+			</ul>
+		</nav>
+	</header>
+
+<main class="page-container">
+    <h1 class="page-title">開源資料庫</h1>
+    <p class="page-subtitle">這裡整理了我公開的筆記或是投影片資訊。</p>
+
+    <div class="resource-grid">
+        <div class="resource-card embed-card">
+            <h3><i class="fa-solid fa-note-sticky"></i> HackMD 公開筆記</h3>
+            <p>交大校自學學士申請經歷</p>
+            <div class="iframe-wrapper">
+                <iframe src="https://hackmd.io/@CYZ-NYCUME/selfdirectedInterdisciplinaryprogram" frameborder="0"></iframe>
+            </div>
+            <a href="https://hackmd.io/@CYZ-NYCUME/selfdirectedInterdisciplinaryprogram" target="_blank" class="btn-link">前往HackMD &rarr;</a>
+        </div>
+
+        <div class="resource-card embed-card">
+            <h3><i class="fa-brands fa-google-drive"></i> 共享資源 (Google Drive)</h3>
+            <p>啟點4.0_介紹機械工程學系</p>
+            <div class="iframe-wrapper">
+                <iframe src="https://drive.google.com/file/d/1krR3lsynOyvNnR-UMBuxvyAqKw1hJIYf/view?usp=sharing" frameborder="0"></iframe>
+            </div>
+            <a href="https://drive.google.com/file/d/1krR3lsynOyvNnR-UMBuxvyAqKw1hJIYf/view?usp=sharing" target="_blank" class="btn-link">前往雲端硬碟 &rarr;</a>
+        </div>
+    </div>
+</main>
+
+    <footer>
+	<div class="footer-content">
+        <div class="social-circles">
+            <a href="https://github.com/chouyuren2024" class="circle-icon" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:chouyuren2024@gmail.com" class="circle-icon" title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Yu-Ren Chou. </p>
+    </div>
+    </footer>
+</body>
+<script src="script.js"></script> </body>
+</html>

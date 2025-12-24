@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我 | Yu-Ren Chou</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">周宥任 YU-REN CHOU</a></div>
+            <ul class="nav-links">
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="articles.html">文章</a></li>
+                <li><a href="resources.html">開源資料</a></li>
+                <li><button id="theme-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-container about-layout">
+        <div class="about-text">
+            <h1 class="page-title">關於我</h1>
+            <p class="intro-text">你好，我是周宥任。我喜歡在程式碼與設計之間尋找平衡，致力於創造流暢且直觀的使用者體驗。</p>
+            
+            <div class="accordion-container">
+                <details open>
+                    <summary>教育背景 <i class="fa-solid fa-chevron-down"></i></summary>
+                    <div class="details-content">
+                        <p>這裡填寫你的學校、系所，以及你在學期間專注的領域。</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>技術棧 <i class="fa-solid fa-chevron-down"></i></summary>
+                    <div class="details-content">
+                        <p>前端：HTML5, CSS3, JavaScript, React, Vue<br>
+                        工具：Git, Figma, VS Code</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>興趣愛好 <i class="fa-solid fa-chevron-down"></i></summary>
+                    <div class="details-content">
+                        <p>除了寫程式，我也熱愛極簡建築、閱讀以及探索各種數位生產力工具。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="about-image-wrapper">
+            <img src="啟點4.jpg" class="profile-photo" alt="周宥任的個人照片">
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-circles">
+                <a href="https://github.com/chouyuren2024" class="circle-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:chouyuren2024@gmail.com" class="circle-icon"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Yu-Ren Chou.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

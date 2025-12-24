@@ -1,0 +1,535 @@
+/* --- 1. 定義顏色變數 (核心設定) --- */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --border-color: #eeeeee;
+    --sub-text: #666666;
+    --hover-bg: #f5f5f5;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --sub-text: #aaaaaa;
+    --hover-bg: #2a2a2a;
+    --nav-bg: rgba(18, 18, 18, 0.9);
+}
+
+/* --- 2. 共用基礎設定 --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html, body {
+    min-height: 100vh;
+    background-color: var(--bg-color); /* 這裡改用變數了！ */
+    color: var(--text-color);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.8;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* --- 3. 導覽列 --- */
+header {
+    padding: 30px 50px;
+    background-color: var(--nav-bg); /* 使用變數 */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.logo a { font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; color: var(--text-color); }
+
+.nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
+.nav-links a { font-size: 0.95rem; color: var(--sub-text); transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-color); }
+
+/* --- 4. 頁面內容容器 --- */
+.page-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.page-title { font-size: 2rem; font-weight: 400; margin-bottom: 10px; letter-spacing: 1px; }
+.page-subtitle { color: var(--sub-text); margin-bottom: 50px; }
+
+/* --- 5. 分頁樣式設定 --- */
+
+/* 開源資料卡片 */
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.resource-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+}
+.resource-card:hover { border-color: var(--text-color); transform: translateY(-5px); }
+.resource-card h3 { color: var(--text-color); margin-bottom: 10px; }
+.resource-card p { color: var(--sub-text); }
+
+/* 文章列表 */
+.article-item {
+    display: flex;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.article-item .date { width: 120px; color: var(--sub-text); font-family: monospace; }
+.article-item .article-link { color: var(--text-color); font-size: 1.1rem; }
+
+/* 關於我 */
+.about-layout { display: flex; gap: 50px; }
+.about-text { flex: 1; color: var(--text-color); }
+.placeholder-img {
+    width: 100%;
+    height: 400px;
+    background-color: var(--hover-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sub-text);
+}
+
+/* --- 6. 頁尾與手機版 --- */
+footer { text-align: center; padding: 50px 0; color: var(--sub-text); font-size: 0.8rem; border-top: 1px solid var(--border-color); }
+
+@media (max-width: 768px) {
+    header { padding: 20px; }
+    .nav-links { gap: 15px; }
+    .about-layout { flex-direction: column-reverse; }
+}
+/* 修改按鈕樣式 */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 淺色模式下的月亮 (稍微深灰) */
+#theme-toggle {
+    color: #555;
+}
+
+/* 深色模式下的太陽 (亮黃色 + 發光感) */
+[data-theme="dark"] #theme-toggle {
+    color: #ffdb58; /* 暖黃色 */
+    text-shadow: 0 0 10px rgba(255, 219, 88, 0.8); /* 發光效果 */
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2); /* 滑鼠移上去稍微放大 */
+    background-color: var(--hover-bg);
+}
+
+/* --- 1. 全域置中設定 --- */
+.hero {
+    height: 100vh; /* 讓 Hero 佔滿整個螢幕高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中 */
+    align-items: center;     /* 水平置中 */
+    text-align: center;      /* 文字內容置中 */
+    padding: 0 20px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+}
+
+.hero-desc {
+    margin: 0 auto; /* 確保段落區塊本身也置中 */
+}
+
+/* --- 2. 打字機效果動畫 --- */
+.typewriter-container {
+    display: inline-block;
+}
+
+.typewriter {
+    overflow: hidden; /* 隱藏未打出的字 */
+    border-right: .15em solid #888; /* 模擬打字機的光標 */
+    white-space: nowrap; /* 強制不換行 */
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    
+    /* 動態效果：typing 是打字，blink 是光標閃爍 */
+    animation: 
+        typing 3.5s steps(30, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* 打字動畫：從寬度 0 變到 100% */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* 光標閃爍動畫 */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #888; }
+}
+
+/* 深色模式下的光標顏色 */
+[data-theme="dark"] .typewriter {
+    border-right-color: #eee;
+}
+
+/* --- 3. 額外的小裝飾：捲動提示 --- */
+.scroll-indicator {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: var(--sub-text);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+.section-header {
+    text-align: center; /* 標題置中 */
+    margin-bottom: 80px;
+}
+
+.work-grid {
+    justify-items: center; /* Grid 內項目置中 */
+}
+/* --- 按鈕容器置中 --- */
+.hero-cta {
+    display: flex;
+    gap: 30px; /* 拉開一點間距，放大時才不會互相碰撞 */
+    margin-top: 40px;
+    justify-content: center;
+}
+
+/* --- 按鈕基礎樣式 --- */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: var(--text-color); /* 文字顏色跟隨主題 */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 使用彈性緩動效果 */
+    display: flex;
+    align-items: center;
+    border: none; /* 移除邊框，讓視覺更乾淨 */
+    background: none;
+}
+
+/* 懸停效果：僅放大，不變色 */
+.btn:hover {
+    transform: scale(1.2); /* 放大 1.2 倍 */
+    color: var(--text-color); /* 確保顏色不變 */
+}
+
+/* 如果你想在按鈕前加個小箭頭或點，可以增加這個效果（選用） */
+.btn::before {
+    content: "→";
+    margin-right: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::before {
+    transform: translateX(5px); /* 箭頭稍微往右移 */
+}
+
+/* 照片輪播容器 */
+.photo-carousel {
+    position: relative;
+    width: 300px;      /* 圓形大小 */
+    height: 300px;
+    margin: 0 auto 30px auto; /* 置中並與下方標題保持距離 */
+}
+
+.carousel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保照片比例正確不變形 */
+    border-radius: 0%; /* 修成圓形 */
+    opacity: 0;         /* 預設透明 */
+    transition: opacity 1.5s ease-in-out; /* 淡入淡出時間 */
+    border: 2px solid var(--border-color); /* 淡淡的邊框感 */
+}
+
+/* 當前顯示的照片 */
+.carousel-img.active {
+    opacity: 1;
+}
+/* --- Footer 圓形連結樣式 --- */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-circles {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 圈圈之間的間距 */
+    margin-bottom: 25px;
+}
+
+.circle-icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--text-color); /* 圓圈邊框 */
+    border-radius: 50%; /* 變成正圓 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* 懸停效果：背景變色、圖示變大 */
+.circle-icon:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transform: translateY(-5px) scale(1.1); /* 往上飄一點點並放大 */
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: var(--sub-text);
+    letter-spacing: 1px;
+}
+/* --- 關於我佈局調整 --- */
+.about-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.about-text { flex: 1.2; }
+.about-image-wrapper { flex: 0.8; position: sticky; top: 120px; }
+
+/* 照片樣式：帶有淡淡的陰影與圓角 */
+.profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* 如果你想要圓形可改 50% */
+    filter: grayscale(20%); /* 稍微降低飽和度更有質感 */
+    transition: filter 0.3s ease;
+}
+.profile-photo:hover { filter: grayscale(0%); }
+
+/* --- 摺疊區塊 (Accordion) 樣式 --- */
+.accordion-container {
+    margin-top: 40px;
+}
+
+details {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+summary {
+    list-style: none; /* 隱藏預設箭頭 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* 隱藏 Safari 預設箭頭 */
+summary::-webkit-details-marker { display: none; }
+
+summary i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* 當展開時，箭頭旋轉 */
+details[open] summary i {
+    transform: rotate(180deg);
+}
+
+.details-content {
+    padding-top: 15px;
+    color: var(--sub-text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* 響應式：手機版改為上下排列 */
+@media (max-width: 768px) {
+    .about-layout { flex-direction: column-reverse; gap: 40px; }
+    .about-image-wrapper { position: static; width: 100%; }
+}
+
+/* --- 嵌入內容樣式 --- */
+.embed-card {
+    grid-column: span 2; /* 讓嵌入卡片佔據兩欄寬度，更方便閱讀 */
+}
+
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 比例 */
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 針對深色模式調整 iframe 亮度（選用） */
+[data-theme="dark"] .iframe-wrapper iframe {
+    filter: brightness(0.9); /* 讓嵌入頁面不要太刺眼 */
+}
+
+/* 手機版調整 */
+@media (max-width: 768px) {
+    .embed-card {
+        grid-column: span 1;
+    }
+    .iframe-wrapper {
+        padding-top: 100%; /* 手機版改為方形比較好操作 */
+    }
+}
+/* --- 文章列表整體排版 --- */
+.page-header {
+    margin-bottom: 80px;
+    text-align: center; /* 延續首頁的置中設計 */
+}
+
+.article-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+/* 日期設定：模仿 Waynspace 的淡色與字體 */
+.article-date {
+    font-family: 'JetBrains Mono', monospace; /* 如果沒有這個字體會自動抓 monospace */
+    font-size: 0.9rem;
+    color: var(--sub-text);
+    min-width: 120px;
+    margin-top: 5px;
+}
+
+.article-content {
+    flex: 1;
+}
+
+/* 文章標題：關鍵的動畫效果 */
+.article-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+/* 懸停時標題變色，並產生底線動畫 */
+.article-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--text-color);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.article-card:hover .article-title {
+    color: var(--text-color);
+}
+
+.article-card:hover .article-title::after {
+    width: 100%;
+}
+
+/* 標籤樣式 */
+.article-meta {
+    display: flex;
+    gap: 15px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    color: var(--sub-text);
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* 響應式調整 */
+@media (max-width: 600px) {
+    .article-card {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+    .article-date {
+        margin-bottom: 10px;
+    }
+    .article-title {
+        font-size: 1.2rem;
+    }
+}
