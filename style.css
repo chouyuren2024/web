@@ -38,18 +38,25 @@ html, body {
 a { text-decoration: none; color: inherit; }
 
 /* --- 3. 導覽列 --- */
-header {
-    padding: 30px 50px;
-    background-color: var(--nav-bg); /* 使用變數 */
+/* --- 3. 導覽列 (固定頂部且不遮擋) --- */
+header:not(.about-header, .page-header) { /* 僅針對網站頂部導覽列，排除內文標題 */
+    width: 100%;
+    height: 70px; /* 固定導覽列的高度，方便計算下方推開的距離 */
+    padding: 0 50px; 
+    background-color: var(--nav-bg);
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
-    position: sticky;
+    
+    position: sticky; 
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
+/* 確保導覽列內的導覽區塊維持最大寬度 */
 nav {
     display: flex;
     justify-content: space-between;
@@ -66,9 +73,10 @@ nav {
 
 /* --- 4. 頁面內容容器 --- */
 .page-container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* 這裡的 40px 會讓標題跟導覽列保持優雅距離 */
+    min-height: 100vh;
 }
 
 .page-title { font-size: 2rem; font-weight: 400; margin-bottom: 10px; letter-spacing: 1px; }
@@ -533,3 +541,321 @@ details[open] summary i {
         font-size: 1.2rem;
     }
 }
+
+/* --- 文章頁面專用重置 --- */
+.article-post-container {
+    margin-top: 80px;        /* 同樣避開 80px 的導覽列 */
+    padding: 60px 20px;
+}
+
+/* --- 核心：這就是你要的置中框框 --- */
+.article-content-wrapper {
+    max-width: 800px;    /* 設定框框的最大寬度 */
+    margin: 0 auto;      /* 這行最關鍵：讓框框本身在螢幕水平置中 */
+    padding: 60px 80px;  /* 框框內部的文字留白 */
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color); /* 框框邊界 */
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* 淡淡的陰影 */
+    text-align: left;    /* 框框內的文字全部靠左對齊 */
+}
+
+/* 深色模式下稍微加強框框對比 */
+[data-theme="dark"] .article-content-wrapper {
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* --- 標題下方資訊排版 --- */
+.post-header {
+    margin-bottom: 40px;
+    display: block;      /* 確保標題與日期是上下堆疊 */
+}
+
+.post-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px; /* 標題跟日期的距離 */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;       /* 日期與標籤水平排列 */
+    gap: 10px;
+    color: var(--sub-text);
+    font-size: 0.9rem;
+}
+
+/* --- 手機版適應 --- */
+@media (max-width: 768px) {
+    .article-post-container {
+        padding: 40px 15px;
+    }
+    .article-content-wrapper {
+        padding: 40px 20px; /* 手機版內縮小一點 */
+        border: none;       /* 手機版可以拿掉框框，空間較大 */
+        box-shadow: none;
+    }
+    .post-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- 回到頂部按鈕 --- */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--text-color); /* 隨主題自動變色 */
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;           /* 初始隱藏 */
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 1000;       /* 確保在最上層 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 當滑鼠移上去時稍微放大 */
+#back-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* 當 JS 判定需要顯示時，加入這個 class */
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 手機版適應：調小一點並移動位置，以免擋到內容 */
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+/* --- 列表層次樣式 --- */
+.details-content ul {
+    list-style: none; /* 移除預設圓點 */
+    padding-left: 0;
+    margin: 0;
+}
+
+/* 主要列點 */
+.main-list > li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.main-list > li::before {
+    content: "•"; /* 自定義主要圓點 */
+    position: absolute;
+    left: 0;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* 次要列點 (縮排) */
+.sub-list {
+    margin-top: 8px !important;
+    padding-left: 20px !important;
+}
+
+.sub-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: var(--sub-text);
+}
+
+.sub-list li::before {
+    content: "◦"; /* 自定義次要圓點 */
+    position: absolute;
+    left: 0;
+}
+/* 第三層列點 (次次標) */
+.deep-list {
+    margin-top: 5px !important;
+    padding-left: 20px !important; /* 再往右縮排 */
+    list-style: none;
+}
+
+.deep-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 3px;
+    font-size: 0.9rem; /* 字體稍微縮小 */
+    color: var(--sub-text);
+    opacity: 0.8; /* 視覺上更退後一點 */
+}
+
+.deep-list li::before {
+    content: "–"; /* 使用短橫線作為第三層符號 */
+    position: absolute;
+    left: 0;
+}
+
+/* 粗體顏色稍微加深 */
+.details-content strong {
+    color: var(--text-color);
+    font-weight: 700;
+}
+/* 確保標題本身沒有絕對定位 */
+.about-header {
+    padding-top: 60px;    /* 關鍵：給標題上方留出空間 */
+    padding-bottom: 40px; /* 與下方內容的距離 */
+    text-align: center;     /* 或者根據你的需求設為 center */
+    display: block;       /* 確保它是區塊元素 */
+    position: relative;
+    width: 100%;
+}
+
+/* 讓 about-layout 寬度適中 */
+.about-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-image-wrapper {
+    flex: 0.8;
+    position: sticky;
+    top: 100px; /* 當下滑時，照片會停在距離頂部 100px 的位置 */
+}
+
+/* 針對手機版的調整：標題置中，內容改為垂直排列 */
+@media (max-width: 768px) {
+    .about-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .about-layout {
+        flex-direction: column-reverse; /* 手機版照片在文字下面，或是改 column 讓照片在上面 */
+        gap: 30px;
+    }
+    .about-image-wrapper {
+        position: static;
+        width: 100%;
+    }
+}
+/* --- 文章頁面專用佈局 --- */
+
+/* 1. 外層容器：確保避開 sticky 的導覽列 */
+.article-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 20px 80px 20px; /* 頂部 100px 確保標題不會鑽進 head */
+    min-height: 100vh;
+}
+
+/* 2. 文章質感框框 */
+.article-post-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 60px 80px; /* 框框內的呼吸空間 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. 標題區塊排版 */
+.article-post-header {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-post-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.article-post-meta {
+    color: var(--sub-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* 4. 內容區文字美化 */
+.article-post-content {
+    line-height: 2;
+    color: var(--text-color);
+}
+
+.article-post-content h2 {
+    margin: 40px 0 20px 0;
+    font-size: 1.6rem;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    color: var(--sub-text);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* 5. 底部返回連結 */
+.article-post-footer {
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.back-link {
+    color: var(--sub-text);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/* 響應式調整：手機版縮小內距 */
+@media (max-width: 768px) {
+    .article-post-card {
+        padding: 40px 25px;
+        border: none; /* 手機版拿掉邊框讓空間更大 */
+        background: transparent;
+    }
+    .article-post-title {
+        font-size: 1.8rem;
+    }
+}
+/* --- 文章頁面專用修正 --- */
+
+/* 1. 確保導覽列 (Head) 永遠在最上層且不透明 */
+header.main-nav {
+    position: fixed; /* 改用 fixed 最穩定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;    /* 這裡定義高度 */
+    background-color: var(--bg-color); /* 必須是實色，不能透明 */
+    z-index: 9999;   /* 極高層級 */
+    border-bottom: 1px solid var(--border-color);
+}
+

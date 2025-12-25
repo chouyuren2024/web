@@ -60,3 +60,25 @@ function startPhotoCarousel() {
 document.addEventListener('DOMContentLoaded', () => {
     startPhotoCarousel();
 });
+
+// 回到頂部按鈕邏輯
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    // 1. 監聽捲動事件
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) { // 下滑超過 300px 顯示
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    // 2. 點擊按鈕捲動到頂部
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // 平滑捲動
+        });
+    });
+});
