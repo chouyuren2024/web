@@ -1066,3 +1066,55 @@ blockquote {
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
+/* --- 手機版 (768px 以下) 專屬優化 --- */
+@media (max-width: 768px) {
+    /* 1. 調整導覽列容器，增加兩側空間 */
+    header.main-nav {
+        padding: 0 15px;
+        height: 60px; /* 稍微縮小高度讓畫面更精簡 */
+    }
+
+    /* 2. 縮小 Logo 字體，避免佔據太多左側空間 */
+    .logo a {
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+
+    /* 3. 關鍵：縮小選單文字與間距 */
+    .nav-links {
+        gap: 12px; /* 大幅縮小連結之間的距離 */
+    }
+
+    .nav-links a {
+        font-size: 11px; /* 縮小字體以防換行 */
+        letter-spacing: 0.05em;
+        white-space: nowrap; /* 強制不換行，確保文字橫向排列 */
+    }
+
+    /* 4. 縮小主題切換按鈕大小 */
+    #theme-toggle {
+        font-size: 1rem;
+        padding: 2px;
+    }
+
+    /* 5. 修正內文左右邊距，讓手機閱讀不擠壓 */
+    .article-page-container {
+        padding-top: 100px; /* 配合縮小的 header */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .article-post-card {
+        padding: 30px 15px; /* 縮小內縮，留給文字更多空間 */
+    }
+}
+
+/* 針對極小螢幕 (如 iPhone SE) 的額外修正 */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 8px;
+    }
+    .logo a {
+        display: none; /* 如果螢幕太小，可以考慮隱藏 Logo 文字只留 Icon 或縮寫 */
+    }
+}
