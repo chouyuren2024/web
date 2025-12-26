@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>交大校自學學士申請經歷 | Yu-Ren Chou</title>
+    <link rel="icon" href="Favicon.png" type="image/png">
+	<title>交大校自學學士申請經歷 | Yu-Ren Chou</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         (function() {
@@ -20,38 +21,48 @@
 <body>
     <header class="main-nav">
         <nav>
-            <div class="logo"><a href="index.html">YU-REN CHOU</a></div>
+            <div class="logo"><a href="index.html">Yu-Ren Chou</a></div>
             <ul class="nav-links">
                 <li><a href="about.html">關於我</a></li>
-                <li><a href="articles.html">文章</a></li>
+                <li><a href="articles.html" class="active">文章</a></li>
                 <li><a href="resources.html">開源資料</a></li>
-                <li><button id="theme-toggle">🌙</button></li>
+                <li><button id="theme-toggle" aria-label="切換主題">🌙</button></li>
             </ul>
         </nav>
     </header>
 
-<main class="article-page-container">
-    <article class="article-post-card">
-<header class="article-post-header">
+    <main class="article-page-container">
+        <article class="article-post-card">
+    <div class="post-category">Self-directed Interdisciplinary Program</div>
     <h1 class="article-post-title">交大校自學學士申請經歷</h1>
     
     <div class="article-post-meta">
         <span class="post-date">2025.06.04</span>
-        <span class="post-tags">#Tutorial #交大</span>
-    </div>
-</header>
+        <span class="post-tags">#College Life #校自學學士 #NYCU</span>
+<div class="article-post-content">
 
-        <div class="article-post-content">
-            <p class="lead-text">這是在這裡寫下你的引言。申請校自學學士是一個探索自我與重新定義學習路徑的過程...</p>
-            <h2>為什麼選擇校自學學士？</h2>
-            <p>在這裡分享你的動機。內容會對齊這個框框的左側。</p>
-        </div>
 
-        <footer class="article-post-footer">
-            <a href="articles.html" class="back-link">← Back to Articles</a>
-        </footer>
-    </article>
-</main>
+    <p>
+        ✨ 很榮幸能獲通過陽明交大第一屆「校自學學士學位」的審查，正式以「機械工程×校自學工學學士」雙主修的身分接續未來三年的學士生涯。
+    </p>
+
+    <p>
+        在申請過程裡，除了透過組合課程的過程中了解未來學習的方向外，也設立我的目標「成為一位理論與實務兼通的工程人」。
+    </p>
+
+    <p>
+        👉 完整心得文章：《校自學學士申請經歷》<br>
+        <a href="https://hackmd.io/@CYZ-NYCUME/selfdirectedInterdisciplinaryprogram" target="_blank">HackMD文章</a>
+    </p>
+</div>
+
+            <footer class="article-post-footer">
+                <a href="articles.html" class="back-link">
+                    <span class="arrow">←</span> ALL ARTICLES
+                </a>
+            </footer>
+        </article>
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -60,12 +71,13 @@
                 <a href="mailto:chouyuren2024@gmail.com" class="circle-icon"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-            <p class="footer-copyright">&copy; 2025 Yu-Ren Chou.</p>
+            <p class="footer-copyright">&copy; 2025 Yu-Ren Chou. Built with Passion.</p>
         </div>
     </footer>
-	<button id="back-to-top" title="Go to top">
-		<i class="fa-solid fa-arrow-up"></i>
-	</button>
+
+    <button id="back-to-top" title="Go to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <script src="script.js"></script>
 </body>
 </html>
