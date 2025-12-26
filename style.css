@@ -1118,3 +1118,44 @@ blockquote {
         display: none; /* 如果螢幕太小，可以考慮隱藏 Logo 文字只留 Icon 或縮寫 */
     }
 }
+/* 圖片容器樣式 */
+.post-image-container {
+    margin: 40px 0; /* 與上下文字保持距離 */
+    text-align: center; /* 圖說置中 */
+    width: 100%;
+}
+
+/* 圖片本身樣式 */
+.post-content-image {
+    max-width: 100%; /* 防止圖片超出框架 */
+    height: auto;
+    border-radius: 8px; /* 圓角處理，與卡片風格統一 */
+    border: 1px solid var(--border-color); /* 淡淡的邊框感 */
+    display: block;
+    margin: 0 auto 15px auto; /* 圖片置中並給下方圖說一點空間 */
+    transition: transform 0.3s ease;
+}
+
+/* 滑鼠移上去時有微小的放大效果 (選用) */
+.post-content-image:hover {
+    transform: scale(1.01);
+}
+
+/* 圖說字體樣式 */
+figcaption {
+    font-size: 0.9rem;
+    color: var(--sub-text);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* 手機版適應：減少圖片上下的間距 */
+@media (max-width: 768px) {
+    .post-image-container {
+        margin: 25px 0;
+    }
+    figcaption {
+        font-size: 0.85rem;
+    }
+}
