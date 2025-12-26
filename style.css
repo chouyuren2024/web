@@ -1150,12 +1150,31 @@ figcaption {
     padding: 0 10px;
 }
 
-/* 手機版適應：減少圖片上下的間距 */
 @media (max-width: 768px) {
-    .post-image-container {
-        margin: 25px 0;
+    /* 縮小手機版圖片上下的間距 */
+    .article-post-content img {
+        margin: 15px auto;
     }
-    figcaption {
-        font-size: 0.85rem;
+
+    /* 如果你希望手機版圖片可以更滿一點，可以調整容器的 padding */
+    .article-post-card {
+        padding: 30px 15px; /* 減少左右留白，讓圖片有更多空間顯示 */
     }
+}
+
+/* 確保文章內容中的所有圖片都能自適應螢幕 */
+.article-post-content img {
+    max-width: 100%;    /* 關鍵：圖片寬度最大只會等於父容器寬度 */
+    height: auto;       /* 關鍵：高度依比例自動縮放，防止變形 */
+    display: block;
+    margin: 20px auto;  /* 圖片上下留白並水平置中 */
+    border-radius: 8px; /* 維持一致的圓角感 */
+}
+
+/* 針對 figure 容器的優化 */
+.post-image-container {
+    width: 100%;        /* 確保容器撐滿 */
+    margin: 30px 0;
+    padding: 0;         /* 移除可能的內縮 */
+    overflow: hidden;   /* 防止內容溢出 */
 }
