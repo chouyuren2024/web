@@ -1178,3 +1178,67 @@ figcaption {
     padding: 0;         /* 移除可能的內縮 */
     overflow: hidden;   /* 防止內容溢出 */
 }
+/* --- 1. 全域圖片響應式強制設定 --- */
+img {
+    max-width: 100%; /* 圖片寬度絕不超過父容器 */
+    height: auto;    /* 保持比例 */
+    display: block;  /* 移除下方奇怪間隙 */
+}
+
+/* --- 2. 文章卡片在手機版的寬度修正 --- */
+@media (max-width: 768px) {
+    /* 確保容器寬度為 100% 且不被 padding 擠破 */
+    .article-page-container {
+        padding: 80px 10px 40px 10px; /* 縮小左右邊距，給內容更多空間 */
+        width: 100%;
+        overflow-x: hidden; /* 強制消除水平滾動條 */
+    }
+
+    .article-post-card {
+        padding: 25px 15px; /* 縮小卡片內縮 */
+        width: 100%;        /* 確保卡片不超出螢幕 */
+        border: none;       /* 手機版拿掉邊框，視覺更寬敞 */
+        background: transparent; /* 或者保持 var(--card-bg) */
+        box-sizing: border-box;
+    }
+
+    /* 針對文章內容中的圖片容器優化 */
+    .post-image-container {
+        width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .post-content-image {
+        width: 100% !important; /* 強制圖片寬度跟隨螢幕 */
+        height: auto !important;
+        border-radius: 4px;
+    }
+
+    /* 縮小圖說文字，避免在小螢幕顯得太突兀 */
+    figcaption {
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+}
+
+/* --- 3. 針對導覽列文字重疊的最終修正 --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 10px;
+    }
+    
+    .logo a {
+        font-size: 0.9rem; /* 縮小名字 */
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        gap: 10px; /* 縮小連結間距 */
+    }
+
+    .nav-links a {
+        font-size: 11px;
+        padding: 5px 0;
+    }
+}
