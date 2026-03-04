@@ -82,3 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-img');
+
+function showSlide(index) {
+    // 1. 先隱藏所有圖片
+    slides.forEach(img => {
+        img.classList.remove('active');
+    });
+
+    // 2. 計算新索引（處理循環：最後一張點右會回到第一張）
+    currentSlide = (index + slides.length) % slides.length;
+
+    // 3. 顯示目標圖片
+    slides[currentSlide].classList.add('active');
+}
+
+// 按鈕點擊事件
+function changeSlide(step) {
+    showSlide(currentSlide + step);
+}
+
+// (選填) 如果你想要自動輪播，可以加上這行：
+// setInterval(() => changeSlide(1), 5000);
