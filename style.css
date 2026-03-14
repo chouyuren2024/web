@@ -1346,18 +1346,26 @@ img {
     display: none !important;
 }
 
-/* 讓標籤看起來像可以點擊的按鈕 */
+/* 文章內顯示的標籤 - 改為靜態純文字風格 */
 .tag {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.05); /* 輕微背景色 */
-    padding: 2px 8px;
-    border-radius: 4px;
-    transition: background 0.2s;
+    font-size: 0.85rem;
+    color: #888;          /* 淡淡的灰色 */
+    margin-right: 8px;
+    cursor: default;      /* 滑鼠移上去不會變手指 */
+    transition: none;     /* 移除過渡動畫 */
+    user-select: none;    /* 防止不小心選取到文字 */
 }
 
+/* 確保沒有懸浮特效 */
 .tag:hover {
-    background: #007bff;
-    color: white;
+    color: #888;          /* 保持原色 */
+    opacity: 1;           /* 保持不透明度 */
+    background: none;     /* 確保沒有背景色 */
+}
+
+/* 搜尋欄位與勾選框區域保持互動性 */
+.checkbox-wrapper {
+    cursor: pointer;      /* 只有篩選區的勾選框可以點 */
 }
 /* 過濾區域容器 */
 .filter-section {
@@ -1458,4 +1466,35 @@ img {
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+}
+
+/* 文章卡片基礎樣式 */
+.article-card {
+    position: relative;
+    cursor: pointer; /* 讓整個區域看起來都可以點擊 */
+    padding: 20px;
+    transition: background-color 0.2s ease;
+}
+
+/* 當滑鼠移入卡片時，標題出現底線 */
+.article-card:hover .article-title {
+    text-decoration: underline !important;
+    text-underline-offset: 5px; /* 底線偏移，比較美觀 */
+}
+
+/* 確保標題連結本身的樣式不會干擾 */
+.article-title {
+    text-decoration: none; /* 預設不要有底線 */
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* 標籤保持純文字，不干擾點擊 */
+.tag {
+    color: #888;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    pointer-events: none; /* 讓點擊穿透到下方的卡片 */
 }

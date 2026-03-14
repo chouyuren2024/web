@@ -202,3 +202,23 @@ document.addEventListener('DOMContentLoaded', () => {
         cb.addEventListener('change', updateFilters);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 獲取所有文章卡片
+    const cards = document.querySelectorAll('.article-card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // 找到卡片內的標題連結
+            const link = card.querySelector('.article-title');
+            
+            if (link) {
+                // 如果點擊的是標題本身，讓原本的 a 標籤處理即可
+                // 如果點擊的是空白處，則手動觸發跳轉
+                if (e.target !== link) {
+                    window.location.href = link.href;
+                }
+            }
+        });
+    });
+});
