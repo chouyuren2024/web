@@ -41,13 +41,39 @@
         <h1 class="page-title">Blog / 文章</h1>
         <p class="page-subtitle"></p>
     </header>
+	
+<div class="filter-section">
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="article-search" placeholder="搜尋文章標題...">
+    </div>
+
+<div class="tags-checkbox-group" id="tags-group">
+        
+        <label class="checkbox-wrapper">
+            <input type="checkbox" class="tag-checkbox" value="競賽">
+            <span class="checkmark"></span> 競賽
+        </label>
+        <label class="checkbox-wrapper">
+            <input type="checkbox" class="tag-checkbox" value="大學生活">
+            <span class="checkmark"></span> 大學生活
+        </label>
+        <label class="checkbox-wrapper">
+            <input type="checkbox" class="tag-checkbox" value="實習">
+            <span class="checkmark"></span> 實習
+        </label>
+
+    </div>
+</div>
+
+
 
         <article class="article-card">
             <span class="article-date">2025.12.27</span>
             <div class="article-content">
                 <a href="20251227NASA.html" class="article-title">2025年NASA黑客松</a>
                 <div class="article-meta">
-                    <span class="tag">#競賽 #2025NASA黑客松 #國家太空中心獎</span>
+                    <span class="tag" data-tag="競賽">#競賽</span>
                 </div>
             </div>
         </article>
@@ -57,7 +83,7 @@
             <div class="article-content">
                 <a href="20251218專題.html" class="article-title">交大機械2025年大學部專題成果發表競賽</a>
                 <div class="article-meta">
-                    <span class="tag">#大學生活 #機械系大學部專題 #高熵合金</span>
+                    <span class="tag" data-tag="大學生活">#大學生活</span>
                 </div>
             </div>
         </article>
@@ -67,7 +93,7 @@
             <div class="article-content">
                 <a href="20250823RunSpace.html" class="article-title">2025 RunSpace太空無限創新挑戰-企業開題組入圍</a>
                 <div class="article-meta">
-                    <span class="tag">#競賽 #經濟部產業發展署 #低軌衛星</span>
+                    <span class="tag" data-tag="競賽">#競賽</span>
                 </div>
             </div>
         </article>
@@ -77,7 +103,7 @@
             <div class="article-content">
                 <a href="20250822TTSS.html" class="article-title">2025 大學生暑期跨校專題研究計畫-成果發表</a>
                 <div class="article-meta">
-                    <span class="tag">#實習 #TTSS #中山物理</span>
+                    <span class="tag" data-tag="實習">#實習</span>
                 </div>
             </div>
         </article>
@@ -87,7 +113,7 @@
             <div class="article-content">
                 <a href="20250604校學士.html" class="article-title">交大校自學學士申請經歷</a>
                 <div class="article-meta">
-                    <span class="tag">#大學生活 #校自學學士 #NYCU</span>
+                    <span class="tag" data-tag="大學生活">#大學生活</span>
                 </div>
             </div>
         </article>

@@ -105,3 +105,100 @@ function changeSlide(step) {
 
 // (選填) 如果你想要自動輪播，可以加上這行：
 // setInterval(() => changeSlide(1), 5000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('article-search');
+    const tagButtons = document.querySelectorAll('.filter-tag');
+    const articles = document.querySelectorAll('.article-card');
+
+    let currentTag = 'all';
+    let currentSearch = '';
+
+    // 核心過濾器
+    function updateFilters() {
+        articles.forEach(article => {
+            const title = article.querySelector('.article-title').textContent.toLowerCase();
+            const articleTags = Array.from(article.querySelectorAll('.tag')).map(t => 
+                t.textContent.replace('#', '').trim()
+            );
+
+            // 條件 1: 標題關鍵字匹配
+            const matchesSearch = title.includes(currentSearch);
+            
+            // 條件 2: 標籤匹配 (如果是 'all' 則全過)
+            const matchesTag = (currentTag === 'all') || articleTags.includes(currentTag);
+
+            // 必須同時滿足兩個條件
+            if (matchesSearch && matchesTag) {
+                article.classList.remove('hidden');
+            } else {
+                article.classList.add('hidden');
+            }
+        });
+    }
+
+    // 監聽搜尋輸入
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase().trim();
+        updateFilters();
+    });
+
+    // 監聽標籤按鈕點擊
+    tagButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 切換按鈕 UI 狀態
+            tagButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // 更新當前標籤並過濾
+            currentTag = button.getAttribute('data-tag');
+            updateFilters();
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('article-search');
+    const checkboxes = document.querySelectorAll('.tag-checkbox');
+    const articles = document.querySelectorAll('.article-card');
+
+    function updateFilters() {
+        const searchText = searchInput.value.toLowerCase().trim();
+        
+        // 取得所有已勾選的標籤值
+        const selectedTags = Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+
+        articles.forEach(article => {
+            const title = article.querySelector('.article-title').textContent.toLowerCase();
+            // 取得該文章所有的 htag 內容
+            const articleTags = Array.from(article.querySelectorAll('.tag')).map(t => 
+                t.textContent.replace('#', '').trim()
+            );
+
+            // 判斷 1: 標題是否包含搜尋字
+            const matchesSearch = title.includes(searchText);
+            
+            // 判斷 2: 是否符合勾選的標籤
+            // 如果沒勾選任何框，則預設為 true (顯示全部)
+            // 如果有勾選，文章必須包含「至少一個」勾選的標籤
+            const matchesTags = selectedTags.length === 0 || 
+                               selectedTags.some(tag => articleTags.includes(tag));
+
+            // 同時滿足才顯示
+            if (matchesSearch && matchesTags) {
+                article.classList.remove('hidden');
+            } else {
+                article.classList.add('hidden');
+            }
+        });
+    }
+
+    // 監聽搜尋框輸入
+    searchInput.addEventListener('input', updateFilters);
+
+    // 監聽每一個勾選框的狀態改變
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', updateFilters);
+    });
+});

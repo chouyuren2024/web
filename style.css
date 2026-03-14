@@ -1293,3 +1293,169 @@ img {
     display: block;
     object-fit: contain; /* 確保圖片不被裁切 */
 }
+
+/* 搜尋框容器 */
+.search-container {
+    margin: 20px 0;
+    position: relative;
+    max-width: 400px;
+}
+
+#article-search {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color); /* 假設你有設定變數，否則用白色 */
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+#article-search:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* 點擊標籤時的視覺反饋 (可選) */
+.tag {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.tag:hover {
+    opacity: 0.7;
+}
+
+/* 當搜尋不到東西時的處理 */
+.hidden {
+    display: none !important;
+}
+
+/* 當文章被隱藏時的樣式 */
+.hidden {
+    display: none !important;
+}
+
+/* 讓標籤看起來像可以點擊的按鈕 */
+.tag {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05); /* 輕微背景色 */
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.tag:hover {
+    background: #007bff;
+    color: white;
+}
+/* 過濾區域容器 */
+.filter-section {
+    margin-bottom: 30px;
+}
+
+/* 標籤列樣式 */
+.tags-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.filter-tag {
+    background: var(--card-bg, #f0f0f0);
+    border: 1px solid #ddd;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.filter-tag:hover {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* 被選中時的狀態 */
+.filter-tag.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
+}
+.tags-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.filter-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* 勾選框容器 */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    user-select: none;
+    color: var(--text-color);
+}
+
+/* 隱藏原生 input */
+.checkbox-wrapper input {
+    display: none;
+}
+
+/* 自定義方框 */
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px; /* 微圓角正方形 */
+    margin-right: 8px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s;
+}
+
+/* 勾選後的樣式 */
+.checkbox-wrapper input:checked + .checkmark {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* 勾選後的打勾符號 */
+.checkbox-wrapper input:checked + .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
