@@ -22,11 +22,6 @@ I am an undergraduate student at **National Yang Ming Chiao Tung University (NYC
 └── Favicon.png         # Website favicon
 ```
 
-## ✨ Core Features
-* **Dark Mode:** Supports manual toggle and automatic detection of system color schemes.
-* **Article System:** A reading interface specifically designed for technical and academic content, featuring optimized image captions and code blocks.
-* **Responsive Layout:** Fully optimized for desktop, tablet, and mobile views to ensure accessibility.
-
 ## 📝 Recent Updates
 * **2026.03.27:** Added visit reflections on **TMTS 2026 (Taiwan International Machine Tool Show)**, documenting technical exchanges and insights gained from **FANUC**, **Tongtai**, and **SIEMENS**.
 
@@ -61,10 +56,6 @@ I am an undergraduate student at **National Yang Ming Chiao Tung University (NYC
 └── Favicon.png         # 網站圖示
 ```
 
-## ✨ 核心功能
-* **深色模式 (Dark Mode)：** 支援手動切換與系統偏好自動偵測。
-* **學術文章系統：** 專門為技術內容設計的閱讀介面，支援圖片標記與代碼塊。
-* **響應式佈局：** 完美適配桌面電腦、平板與手機端。
 
 ## 📝 最近更新
 * **2026.03.27：** 新增「2026 台灣國際工具機展 (TMTS)」參訪心得，記錄與發那科 (FANUC)、東台精機 (Tongtai)、西門子 (SIEMENS) 等企業的技術交流。
