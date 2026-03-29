@@ -1476,11 +1476,7 @@ img {
     transition: background-color 0.2s ease;
 }
 
-/* 當滑鼠移入卡片時，標題出現底線 */
-.article-card:hover .article-title {
-    text-decoration: underline !important;
-    text-underline-offset: 5px; /* 底線偏移，比較美觀 */
-}
+
 
 /* 確保標題連結本身的樣式不會干擾 */
 .article-title {
