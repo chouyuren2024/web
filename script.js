@@ -222,3 +222,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function showInfo(title, desc, link) {
+    const panel = document.getElementById('info-panel');
+    panel.style.opacity = 0;
+    panel.style.transform = "translateY(15px)";
+    
+    setTimeout(() => {
+        // 基本 HTML 內容
+        let content = `
+            <h2 class="cosmos-info-title">${title}</h2>
+            <p class="cosmos-info-desc">${desc}</p>
+        `;
+
+        // 如果有傳入 link，就加上按鈕
+ if (link) {
+    content += `
+        <div style="display:flex; gap:12px; margin-top:20px;">
+            <a href="${link}" target="_blank" class="cosmos-btn">查看專案詳情</a>
+        </div>
+    `;
+}
+
+        panel.innerHTML = content;
+        panel.style.opacity = 1;
+        panel.style.transform = "translateY(0)";
+    }, 300);
+}
+
+
+        updateThemeUI(document.documentElement.getAttribute('data-theme'));
+        document.getElementById('info-panel').style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";

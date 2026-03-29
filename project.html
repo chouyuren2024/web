@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Favicon.png" type="image/png">
+    <title>Project Universe | Yu-Ren Chou</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="Favicon.png" alt="周宥任 Yu-Ren Chou"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html">關於</a></li>
+                <li><a href="articles.html">文章</a></li>
+				<li><a href="project.html">研究</a></li>
+                <li><a href="resources.html">開源</a></li>
+                <li><button id="theme-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cosmos-page-main">
+        <div class="cosmos-wrapper">
+            <div class="cosmos-visual-area">
+                <div class="cosmos-container">
+                    <div class="cosmos-sun">Chou Yu-Ren</div>
+
+                    <div class="cosmos-orbit orb-1">
+                        <div class="cosmos-planet" onclick="showInfo('機械工程', '在機械系上學習。過去曾在系上實驗室完成專題「Investigation of Nanoparticle Properties from Laser Ablation in Different Media」 ')">⚙️</div>
+                    </div>
+
+                    <div class="cosmos-orbit orb-2">
+                        <div class="cosmos-planet" onclick="showInfo('航太工程', '我正在修習台聯大系統的「太空學程」。過去也曾主持「SWIAS」立方衛星提案計畫並獲2025年NASA黑客松國家太空中心獎。','https://www.spaceappschallenge.org/2025/find-a-team/swias/')">🛰</div>
+                    </div>
+
+                    <div class="cosmos-orbit orb-3">
+                        <div class="cosmos-planet" onclick="showInfo('當代工程', '我正在修習「三一學程」、「數位製造微學程」，學習包括材料、光學與製造技術，期望能增廣我在機械領域的所學')">🔬</div>
+                    </div>
+
+                    <div class="cosmos-orbit orb-4">
+                        <div class="cosmos-planet" onclick="showInfo('程式開發', '主要是寫html、css和js，也常常參與資訊社群','https://github.com/chouyuren2024')">💻</div>
+                    </div>
+                </div>
+            </div>
+			
+            <div class="cosmos-info-area" id="info-panel">
+                <h2 class="cosmos-info-title">我的研究宇宙</h2>
+                <p class="cosmos-info-desc">點擊軌道上的行星。此處將說明呈現我在機械工程、航太工程、材料科學與程式開發領域的歷程與成果。</p>
+            </div>
+        </div>
+    </main>
+
+
+
+    
+	<script src="script.js"></script>
+
+</body>
+<footer>
+	<div class="footer-content">
+        <div class="social-circles">
+            <a href="https://github.com/chouyuren2024" class="circle-icon" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:chouyuren2024@gmail.com" class="circle-icon" title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Yu-Ren Chou. </p>
+    </div>
+    </footer>
+	<button id="back-to-top" title="Go to top">
+		<i class="fa-solid fa-arrow-up"></i>
+	</button>
+    <script src="script.js"></script>
+</html>
