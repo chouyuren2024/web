@@ -22,8 +22,6 @@ I am an undergraduate student at **National Yang Ming Chiao Tung University (NYC
 └── Favicon.png         # Website favicon
 ```
 
-## 📝 Recent Updates
-* **2026.03.27:** Added visit reflections on **TMTS 2026 (Taiwan International Machine Tool Show)**, documenting technical exchanges and insights gained from **FANUC**, **Tongtai**, and **SIEMENS**.
 
 ## 📬 Contact
 * **Email:** [chouyuren2024@gmail.com](mailto:chouyuren2024@gmail.com)
@@ -56,9 +54,6 @@ I am an undergraduate student at **National Yang Ming Chiao Tung University (NYC
 └── Favicon.png         # 網站圖示
 ```
 
-
-## 📝 最近更新
-* **2026.03.27：** 新增「2026 台灣國際工具機展 (TMTS)」參訪心得，記錄與發那科 (FANUC)、東台精機 (Tongtai)、西門子 (SIEMENS) 等企業的技術交流。
 
 ## 📬 聯絡方式
 * **Email:** [chouyuren2024@gmail.com](mailto:chouyuren2024@gmail.com)
