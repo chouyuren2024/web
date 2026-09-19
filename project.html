@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Favicon.png" type="image/png">
     <title>Project Universe | Yu-Ren Chou</title>
-    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
@@ -21,68 +19,75 @@
             <ul class="nav-links">
                 <li><a href="about.html">關於</a></li>
                 <li><a href="articles.html">文章</a></li>
-				<li><a href="project.html">研究</a></li>
+                <li><a href="project.html" class="active">研究</a></li>
                 <li><a href="resources.html">開源</a></li>
-                <li><button id="theme-toggle">🌙</button></li>
+                <li><button id="theme-toggle" class="theme-btn">🌙</button></li>
             </ul>
         </nav>
     </header>
 
-    <main class="cosmos-page-main">
-        <div class="cosmos-wrapper">
-            <div class="cosmos-visual-area">
-                <div class="cosmos-container">
-                    <div class="cosmos-sun">Chou Yu-Ren</div>
-
-                    <div class="cosmos-orbit orb-1">
-                        <div class="cosmos-planet" onclick="showInfo('機械工程', '在機械系上學習。過去曾在系上實驗室完成專題「Investigation of Nanoparticle Properties from Laser Ablation in Different Media」 ')">⚙️</div>
-                    </div>
-
-                    <div class="cosmos-orbit orb-2">
-                        <div class="cosmos-planet" onclick="showInfo('航太工程', '我正在修習台聯大系統的「太空學程」。過去也曾主持「SWIAS」立方衛星提案計畫並獲2025年NASA黑客松國家太空中心獎。','https://www.spaceappschallenge.org/2025/find-a-team/swias/')">🛰</div>
-                    </div>
-
-                    <div class="cosmos-orbit orb-3">
-                        <div class="cosmos-planet" onclick="showInfo('當代工程', '我正在修習「三一學程」、「數位製造微學程」，學習包括材料、光學與製造技術，期望能增廣我在機械領域的所學')">🔬</div>
-                    </div>
-
-                    <div class="cosmos-orbit orb-4">
-                        <div class="cosmos-planet" onclick="showInfo('程式開發', '主要是寫html、css和js，也常常參與資訊社群','https://github.com/chouyuren2024')">💻</div>
-                    </div>
-                </div>
-            </div>
-			
-            <div class="cosmos-info-area" id="info-panel">
-                <h2 class="cosmos-info-title">我的研究宇宙</h2>
-                <p class="cosmos-info-desc">點擊軌道上的行星。此處將說明呈現我在機械工程、航太工程、材料科學與程式開發領域的歷程與成果。</p>
-            </div>
+    <div class="app-container">
+    <!-- 左側固定宇宙 -->
+    <div class="visual-sticky">
+        <div class="cosmos-scene" id="scene">
+            <div class="sun"><span>YU-REN<br>UNIVERSE</span></div>
+            <div class="planet" id="p0">⚙️</div>
+            <div class="planet" id="p1">🛰️</div>
+            <div class="planet" id="p2">🔬</div>
+            <div class="planet" id="p3">💻</div>
         </div>
-    </main>
-
-
-
-    
-	<script src="script.js"></script>
-
-</body>
-<footer>
-	<div class="footer-content">
-        <div class="social-circles">
-            <a href="https://github.com/chouyuren2024" class="circle-icon" target="_blank" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="mailto:chouyuren2024@gmail.com" class="circle-icon" title="Email">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/chouyuren" class="circle-icon" target="_blank" title="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-        </div>
-        <p class="footer-copyright">&copy; 2025 Yu-Ren Chou. </p>
     </div>
-    </footer>
-	<button id="back-to-top" title="Go to top">
-		<i class="fa-solid fa-arrow-up"></i>
-	</button>
+
+    <!-- 右側捲動內容 -->
+    <div class="content-scrollable" id="scrollContainer">
+        <!-- 區塊 0 -->
+        <div class="section-card active" data-idx="0">
+            <h2>機械工程</h2>
+            <span class="role-tag">國立陽明交通大學 | 機械工程學系</span>
+            <ul>
+                <li><strong>學術榮譽：</strong> 獲頒 NYCU 校長獎與書卷獎肯定，展現紮實的工程理論基礎。</li>
+                <li><strong>高熵合金研究：</strong> 於中山大學實習期間，研究 LPLA 合成 AlCrFeNi 奈米粒子之機制。</li>
+                <li><strong>聚集模型：</strong> 應用 DLVO 理論與 Python 數據分析建立粒子聚集演化模型。</li>
+            </ul>
+            <div class="tech-pill">Nanotechnology</div><div class="tech-pill">Python</div>
+        </div>
+
+        <!-- 區塊 1 -->
+        <div class="section-card" data-idx="1">
+            <h2>航太工程</h2>
+            <span class="role-tag">TASA 太空技術與工程學程</span>
+            <ul>
+                <li><strong>SWIAS 計畫：</strong> 擔任隊長主導太陽風離子各向異性研究任務之立方衛星提案。</li>
+                <li><strong>獲獎經歷：</strong> 榮獲 NASA Space Apps Challenge 國家太空中心 (TASA) 特別獎。</li>
+                <li><strong>系統設計：</strong> 負責衛星姿態控制元件選型，包括 Honeywell 反應輪系統與抗輻射設計。</li>
+            </ul>
+            <div class="tech-pill">CubeSat</div><div class="tech-pill">Aerospace</div>
+        </div>
+
+        <!-- 區塊 2 -->
+        <div class="section-card" data-idx="2">
+            <h2>跨域研究</h2>
+            <span class="role-tag">自主引導跨領域學程</span>
+            <ul>
+                <li><strong>三一學程：</strong> 結合機械背景與數位製造，探索先進材料在當代工程中的應用。</li>
+                <li><strong>實驗室經歷：</strong> 於 NSYSU 奈米物理實驗室維護 STM 掃描穿隧顯微鏡系統。</li>
+            </ul>
+            <div class="tech-pill">Digital Manufacturing</div>
+        </div>
+
+        <!-- 區塊 3 -->
+        <div class="section-card" data-idx="3">
+            <h2>程式與網頁</h2>
+            <span class="role-tag">Scientific Programming & Web Dev</span>
+            <ul>
+                <li><strong>物理模擬：</strong> 使用 SciPy 進行 Mie Scattering 散射模擬與數據視覺化。</li>
+                <li><strong>網站架設：</strong> 利用 HTML/CSS 建構個人 Portfolio，並持續優化 UI/UX 互動體驗。</li>
+            </ul>
+            <div class="tech-pill">JavaScript</div><div class="tech-pill">Matplotlib</div>
+        </div>
+    </div>
+</div>
+
     <script src="script.js"></script>
+</body>
 </html>
